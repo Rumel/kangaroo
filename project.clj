@@ -12,13 +12,15 @@
                  [environ "1.0.0"]
                  [im.chit/cronj "1.4.3"]
                  [noir-exception "0.2.3"]
-                 [prone "0.8.0"]]
+                 [prone "0.8.0"]
+                 [org.clojure/clojurescript "0.0-2760"]]
   :uberjar-name "kangaroo.jar"
   :repl-options {:init-ns kangaroo.repl}
   :jvm-opts ["-server"]
   :plugins [[lein-ring "0.9.0"]
             [lein-environ "1.0.0"]
-            [lein-ancient "0.5.5"]]
+            [lein-ancient "0.5.5"]
+            [lein-cljsbuild "1.0.4"]]
   :ring {:handler kangaroo.handler/app
          :init    kangaroo.handler/init
          :destroy kangaroo.handler/destroy
@@ -37,3 +39,4 @@
                       (pjstadig.humane-test-output/activate!)]
          :env {:dev true}}}
   :min-lein-version "2.0.0")
+
