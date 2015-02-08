@@ -15,7 +15,8 @@
                  [prone "0.8.0"]
                  [org.clojure/clojurescript "0.0-2760"]
                  [ragtime "0.3.8"]
-                 [postgresql "9.3-1102.jdbc41"]]
+                 [postgresql "9.3-1102.jdbc41"]
+                 [korma "0.4.0"]]
   :uberjar-name "kangaroo.jar"
   :repl-options {:init-ns kangaroo.repl}
   :jvm-opts ["-server"]
