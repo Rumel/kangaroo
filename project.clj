@@ -13,18 +13,23 @@
                  [im.chit/cronj "1.4.3"]
                  [noir-exception "0.2.3"]
                  [prone "0.8.0"]
-                 [org.clojure/clojurescript "0.0-2760"]]
+                 [org.clojure/clojurescript "0.0-2760"]
+                 [ragtime "0.3.8"]
+                 [postgresql "9.3-1102.jdbc41"]]
   :uberjar-name "kangaroo.jar"
   :repl-options {:init-ns kangaroo.repl}
   :jvm-opts ["-server"]
   :plugins [[lein-ring "0.9.0"]
             [lein-environ "1.0.0"]
             [lein-ancient "0.5.5"]
-            [lein-cljsbuild "1.0.4"]]
+            [lein-cljsbuild "1.0.4"]
+            [ragtime/ragtime.lein "0.3.8"]]
   :ring {:handler kangaroo.handler/app
          :init    kangaroo.handler/init
          :destroy kangaroo.handler/destroy
          :uberwar-name "kangaroo.war"}
+  :ragtime {:migrations ragtime.sql.files/migrations
+            :database "jdbc:postgresql://localhost:5432/kangaroo?user=kangaroo"}
   :profiles
   {:uberjar {:omit-source true
              :env {:production true}
