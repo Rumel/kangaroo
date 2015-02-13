@@ -3,4 +3,4 @@
 
 (defdb db (postgres {:db "kangaroo"
                      :user "kangaroo"
-                     :password ""}))
+                     :password "password"}))

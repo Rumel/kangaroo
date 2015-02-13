@@ -31,7 +31,7 @@
          :destroy kangaroo.handler/destroy
          :uberwar-name "kangaroo.war"}
   :ragtime {:migrations ragtime.sql.files/migrations
-            :database "jdbc:postgresql://localhost:5432/kangaroo?user=kangaroo"}
+            :database "jdbc:postgresql://localhost:5432/kangaroo?user=kangaroo&password=password"}
   :profiles
   {:uberjar {:omit-source true
              :env {:production true}
