@@ -1,19 +1,14 @@
-# kangaroo
+# Kangaroo
 
-FIXME
+## Vagrant
+1. Download and install vagrant.
+1. Run `vagrant up`
+1. Run `vagrant ssh`
+1. You should be in `/vagrant`
+1. Run `lein`
+  * This will install Clojure
+1. Run `lein deps`
+1. Switch to the postgres user `sudo su - postgres`
+1. Run `/vagrant/scripts/create_database.sh && exit`
+1. Run `lein ragtime migrate`
 
-## Prerequisites
-
-You will need [Leiningen][1] 2.0 or above installed.
-
-[1]: https://github.com/technomancy/leiningen
-
-## Running
-
-To start a web server for the application, run:
-
-    lein ring server
-
-## License
-
-Copyright © 2015 FIXME
