@@ -15,3 +15,6 @@ pom.xml
 .vagrant
 
 .repl/
+
+resources/public/js/application.js
+resources/public/js/out/
