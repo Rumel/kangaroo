@@ -17,7 +17,8 @@
                  [ragtime "0.3.8"]
                  [postgresql "9.3-1102.jdbc41"]
                  [korma "0.4.0"]
-                 [digest "1.4.4"]]
+                 [digest "1.4.4"]
+                 [org.omcljs/om "0.8.8"]]
   :uberjar-name "kangaroo.jar"
   :repl-options {:init-ns kangaroo.repl}
   :jvm-opts ["-server"]
@@ -32,6 +33,16 @@
          :uberwar-name "kangaroo.war"}
   :ragtime {:migrations ragtime.sql.files/migrations
             :database "jdbc:postgresql://localhost:5432/kangaroo?user=kangaroo&password=password"}
+  :cljsbuild {
+    :builds [{:id "dev"
+              :source-paths ["src-cljs/kangaroojs"]
+              :compiler {
+                :asset-path "/js/out"
+                :main kangaroojs.core
+                :output-to "resources/public/js/application.js"
+                :output-dir "resources/public/js/out"
+                :optimizations :none
+                :source-map true}}]}
   :profiles
   {:uberjar {:omit-source true
              :env {:production true}

@@ -1,15 +1,14 @@
 (ns kangaroo.routes.home
+  (:import java.io.File)
   (:require [compojure.core :refer :all]
-            [kangaroo.layout :as layout]
-            [kangaroo.util :as util]))
+            [compojure.response :as response]))
 
-(defn home-page []
-  (layout/render
-    "home.html" {:content (util/md->html "/md/docs.md")}))
+(def index-file "resources/public/index.html")
 
-(defn about-page []
-  (layout/render "about.html"))
+(defn index
+  "Returns the index page"
+  []
+  (response/render (File. index-file) nil))
 
 (defroutes home-routes
-  (GET "/" [] (home-page))
-  (GET "/about" [] (about-page)))
+  (GET "/" [] (index)))
